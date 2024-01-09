@@ -13,10 +13,17 @@ return new class extends Migration
     {
         Schema::create('pytania', function (Blueprint $table) {
             $table->id();
-            $table->integer('kategoria_id');
+            $table->integer('numer_pytania');
+            $table->unsignedBigInteger('kategorie_id');
             $table->text('pytanie_tresc');
-            $table->text('odpowiedz');
+            $table->text('odp_rozbudowana')->nullable();
+            $table->text('odp_krotka')->nullable();
+            $table->text('zdj_pytanie')->nullable();
+            $table->text('zdj_odpowiedz')->nullable();
+            $table->text('typ_pytania');
             $table->timestamps();
+
+            $table->foreign('kategorie_id')->references('id')->on('kategorie') ->onDelete('cascade');
         });
     }
 

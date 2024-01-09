@@ -12,4 +12,9 @@ class Kategorie extends Model
     protected $fillable =[
         'nazwa',   
     ];
+
+    public function pytania() //relacja z pytaniami
+    {
+        return $this->hasMany(Pytania::class);
+    }
 }

@@ -1,0 +1,369 @@
+@font-face {
+    font-family: font-mon;
+    src: url(../font/Montserrat.ttf);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: font-mon;
+}
+
+a{
+    all:unset;
+    cursor: pointer;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: #00072D;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #001C55, #0E6BA8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #001C55, #0E6BA8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* ---------------------- ZMIENNE ---------------------- */
+:root
+{
+    /* KOLORY UŻYWANE W LAYOUCIE */
+    --color1: #4C5C68;
+    --color2: #46494C;
+    --color3: #C5C3C6;
+    --color4: #DCDCDD;
+    --color5: #14687D;
+    --color6: #0D4654;
+    --color7: #1985A1;
+    --color8: #28CEF7;
+    --color9: #21ACCF;
+
+    --color-background: #00072D;  /* fallback for old browsers */
+    --color-background: -webkit-linear-gradient(to bottom, #001C55, #0E6BA8);  /* Chrome 10-25, Safari 5.1-6 */
+    --color-background: linear-gradient(to bottom, #001C55, #0E6BA8);
+
+    /* KOLORY CZCIONEK */
+    --font-bright: #f1f1f1;
+    --font-dark: #0f0f0f;
+    --font-label: #f38b23;
+
+    /* ODCIENIE SZAROŚCI */
+    --grey100: #261F22;
+    --grey80: #514C4E;
+    --grey60: #7D797A;
+    --grey40: #A8A5A7;
+    --grey20: #D4D2D3;
+    --grey10: #E9E9E9;
+    --white: #FFFFFF;
+
+    /* KOLORY-ALERTÓW */
+    --error: #CC0000;
+    --error-background: #F1D0CE;
+    --warning: #EEBE00;
+    /* --warning: #d6ad09; */
+    --warning-background: #FFF1BB;
+    --success: #339900;
+    --success-background: #CAE7C9;
+
+
+    --gradient-color: linear-gradient(to bottom, var(--color2), var(--color2X));
+    --gradient-color-op: linear-gradient(to top, var(--color2), var(--color2X));
+     /* ROZMIARY NAGŁÓWKÓW */
+    --nav-header: 20px;
+
+    --h1: clamp(40px, 5vw, 48px);
+    --h2: clamp(32px, 6vw, 40px);
+    --h3: clamp(25px, 5vw, 32px);
+    --h4: clamp(20px, 4vw, 25px);
+    --h5: clamp(16px, 3vw, 20px);
+    --h6: clamp(13px, 2vw, 16px);
+
+    /* ROZMIARY PARAGRAFÓW */ 
+    --p-xxxl: 19px;
+    --p-xxl: 18px;
+    --p-xl: 17px;
+    --p-l: 16px;
+    --p-m: 15px;
+    --p-s: 14px;
+    --p-xs: 13px;
+    --p-xxs: 12px;
+    --p-xxxs: 11px;
+
+    --p-button: 14px;
+    --button-dark-height: 12px;
+    --button-dark-width: 24px;
+
+    /* ROZMIARY ZAOKRĄGLEŃ */ 
+    --main-radius: 8px;
+
+    /* SEKCJE */ 
+    --section-global-mg-hor: 128px;
+    --section-global-mg-ver: 56px;
+}
+/* ---------------------- ZMIENNE-END ---------------------- */
+
+
+/* ---------------------- PREDEFINIOWANE KLASY ---------------------- */
+/* --- COLORS --- */
+.white { color: var(--white)}
+.red { background-color: var(--error) !important}
+.bg-white {background-color: var(--white);}
+.bg-gradient {background: var(--gradient-color);}
+.bg-gradient-op {background: var(--gradient-color-op);}
+.bg-color1 { background-color: var(--color1);}
+.bg-color2 { background-color: var(--color2);}
+.bg-color3 { background-color: var(--color3);}
+.bg-color4 { background-color: var(--color4);}
+.bg-color5 { background-color: var(--color5);}
+.bg-color6 { background-color: var(--color6);}
+.bg-color7 { background-color: var(--color7);}
+.bg-grey100 { background-color: var(--grey100);}
+.bg-grey80 { background-color: var(--grey80);}
+.bg-grey60 { background-color: var(--grey60);}
+.bg-grey40 { background-color: var(--grey40);}
+.bg-grey20 { background-color: var(--grey20);}
+.bg-grey10 { background-color: var(--grey10);}
+
+.font-bright {color: var(--font-bright)}
+.font-dark {color: var(--font-dark)}
+.error-font { color: var(--error);}
+.color0-font { color: var(--color0);}
+/* --- COLORS-END --- */
+
+/* --- FONT-STYLES --- */
+.font-100 { font-weight: 100; }
+.font-200 { font-weight: 200; }
+.font-300 { font-weight: 300; }
+.font-400 { font-weight: 400; }
+.font-500 { font-weight: 500; }
+.font-600 { font-weight: 600; }
+.font-700 { font-weight: 700; }
+.font-800 { font-weight: 800; }
+.font-900 { font-weight: 900; }
+
+.font-mon {font-family: font-mon !important;}
+.font-ox {font-family: font-ox !important;}
+.font-orb {font-family: font-orb !important;}
+
+/* --- FONT-STYLES-END --- */
+
+
+/* --- FONT-CLASSES --- */
+.h1{font-size: var(--h1);font-family: font-ox; ; font-weight: 600;}
+.h2{font-size: var(--h2);font-family: font-ox;}
+.h3{font-size: var(--h3);font-family: font-ox;}
+.h4{font-size: var(--h4);font-family: font-ox;}
+.h5{font-size: var(--h5);font-family: font-ox;}
+.h6{font-size: var(--h6);font-family: font-ox;}
+
+.p-xxxl{font-size: var(--p-xxxl);}
+.p-xxl{font-size: var(--p-xxl);}
+.p-xl{font-size: var(--p-xl);}
+.p-l{font-size: var(--p-l);}
+.p-m{font-size: var(--p-m);}
+.p-s{font-size: var(--p-s);}
+.p-xs{font-size: var(--p-xs);}
+.p-xxs{font-size: var(--p-xxs);}
+.p-xxxs{font-size: var(--p-xxxs);}
+/* --- FONT-CLASSES-END --- */
+
+/* --- PADDING & MARGIN --- */
+.pad8{ padding: 8px;}
+.pad16{ padding: 16px;}
+.pad24{ padding: 24px;}
+.pad32{ padding: 32px;}
+
+.mg8{ margin: 8px;}
+.mg16{ margin: 16px;}
+.mg24{ margin: 24px;}
+.mg32{ margin: 32px;}
+
+/* --- PADDING & MARGIN-END --- */
+/* ---------------------- PREDEFINIOWANE KLASY-END ---------------------- */
+
+
+/*  ---------------------- KOMPONENTY ---------------------- */
+button{
+    border: 0;
+}
+
+.button-dark{
+    display: flex;
+    padding: var(--button-dark-height) var(--button-dark-width);
+    align-items: center;
+    gap: 16px;
+    border-radius: 8px;
+    background-color: var(--color2);
+    font-family: font-mon;
+    font-weight: 400;
+    font-size: var(--p-button);
+    color: var(--white);
+    width: fit-content;
+    white-space: nowrap;
+    transition: .4s;
+}
+
+.button-dark:hover{
+    color: var(--color7);
+    transform: scale(0.97);
+    cursor: pointer;
+}
+
+/*  ---------------------- KOMPONENTY-END ---------------------- */
+
+/* ---------------------- STAŁE-ELEMENTY-LAYOUT ---------------------- */
+
+.main-container{
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    grid-template-rows: 
+    auto 
+    1fr 
+    auto;
+    grid-template-columns: 100%;
+  }
+
+.empty{
+    height: 64px;
+}
+
+/* ----- HEADER-NAV ----- */
+
+.nav{
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 64px;
+    margin: 0;
+    padding: 0px 3%;
+    background-color: var(--color1);
+    transition: all .50s ease;
+    z-index: 9000;
+}
+
+.nav-left
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-left-img
+{
+    width: 41px;
+    height: 40px;
+    margin-right: 8px;
+}
+
+.nav-left-text {
+    color: var(--grey10);
+    font-size: var(--nav-header);
+}
+
+.nav-left-text:hover {
+    color: var(--color6);
+}
+
+.nav-center{
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.nav-center-wrapper{
+    display: none;
+}
+
+.nav-link{
+    align-self: center;
+    color: var(--grey10);
+    font-size: var(--p-m);
+}
+
+.nav-link:hover{
+    color: var(--color6);
+}
+
+.nav-right{
+    display: flex;
+    align-content: center;
+    gap: 8px;
+    font-size: var(--p-m);
+}
+
+.nav-right-wrapper{
+    display: flex;
+    align-content: center;
+    gap: 8px;
+}
+
+.nav-tel{
+    display: flex;
+    align-content: center;
+    gap: 8px;
+    margin-right: 24px;
+}
+
+.nav-ico{
+    color: var(--grey10);
+    font-size: 18px;
+}
+
+.nav-ico:hover{
+    color: var(--color6);
+}
+
+.hamburger{
+    display: none;
+    color: var(--white);
+    font-size: 32px;
+    cursor: pointer;
+}
+/* ----- HEADER-NAV-END ----- */
+
+/* -----  FOOTER -----  */
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background: var(--color1);
+    color: var(--grey10);
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    padding: 16px 3%;
+}
+/* -----  FOOTER-END -----  */
+/* ---------------------- STAŁE-ELEMENTY-LAYOUT ---------------------- */
+
+/*---- WELCOME-MAIN-CONTAINER ---- */
+.welcome-main-container{
+    height: calc(100vh - 64px);
+}
+.welcome-header-container{
+    height: 40%;
+}
+.welcome-select-wrapper{
+    display: flex;
+    width: 100%;
+    height: 60%;
+    background-color: white;
+}
+.welcome-select{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #339900;
+    border: 1px solid black;
+}
+/*---- WELCOME-MAIN-CONTAINER-END ---- */

@@ -7,8 +7,28 @@
     @stack('css')
     @stack('js')
     @vite(['resources/css/app.css', 
-    'resources/js/app.js', ])
+    'resources/js/app.js',
+    'resources/css/global.css',
+    'resources/css/fontello.css'])
 </head>
 <body>
-    @yield('content')
+    <div class="main-container">
+        <div class="empty"></div>
+        <header class="nav">
+            <a href="#" class="nav-left">
+                <h5><i class=" icon-laptop nav-ico"></i></h5>
+                <h5 class="nav-left-text">Exam App</h5>
+            </a>
+            <div class="nav-center">
+                <a href="#">Pytania (nauka)</a>
+                <a href="#">Losowanie (egzamin)</a>
+            </div>
+            <div class="nav-right">
+                -
+            </div>
+        </header>
+        <!-- CONTENT -->
+        @yield('content')
+        <footer>footer</footer>
+    </div>
 </body>

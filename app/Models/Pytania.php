@@ -14,4 +14,9 @@ class Pytania extends Model
         'pytanie_tresc',   
         'odpowiedz',   
     ];
+
+    public function kategorie() //relacja z userem
+    {
+        return $this->belongsTo(Kategorie::class);
+    }
 }
