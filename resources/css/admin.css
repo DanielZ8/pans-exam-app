@@ -1,0 +1,23 @@
+/*  ---------------------- LOGIN ---------------------- */
+.admin-login-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.admin-login-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    min-width: 500px;
+    gap: 16px;
+    padding: 16px;
+    height: fit-content;
+    border-radius: var(--main-radius);
+    background-color: var(--color1);
+}
+
+.login-button{
+    align-self: center;
+}

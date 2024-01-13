@@ -25,6 +25,9 @@
             </div>
             <div class="nav-right">
                 -
+                @auth
+                <a href="{{route('logout')}}"><button class="button-dark button-logout">Wyloguj</button></a>
+                @endauth
             </div>
         </header>
         <!-- CONTENT -->

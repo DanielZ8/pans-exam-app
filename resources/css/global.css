@@ -30,15 +30,17 @@ body{
 :root
 {
     /* KOLORY UŻYWANE W LAYOUCIE */
-    --color1: #4C5C68;
-    --color2: #46494C;
-    --color3: #C5C3C6;
-    --color4: #DCDCDD;
-    --color5: #14687D;
-    --color6: #0D4654;
-    --color7: #1985A1;
-    --color8: #28CEF7;
-    --color9: #21ACCF;
+    --color1: #0D1B2A;
+    --color2: #1B263B;
+    --color3: #415A77;
+    --color4: #778DA9;
+    --color5: #E0E1DD;
+
+    --color6: #051923;
+    --color7: #003554;
+    --color8: #006494;
+    --color9: #0582CA;
+    --color10: #00A6FB;
 
     --color-background: #00072D;  /* fallback for old browsers */
     --color-background: -webkit-linear-gradient(to bottom, #001C55, #0E6BA8);  /* Chrome 10-25, Safari 5.1-6 */
@@ -242,7 +244,7 @@ button{
     height: 64px;
     margin: 0;
     padding: 0px 3%;
-    background-color: var(--color1);
+    background-color: var(--color6);
     transition: all .50s ease;
     z-index: 9000;
 }
@@ -262,12 +264,12 @@ button{
 }
 
 .nav-left-text {
-    color: var(--grey10);
+    color: var(--color5);
     font-size: var(--nav-header);
 }
 
 .nav-left-text:hover {
-    color: var(--color6);
+    color: var(--color9);
 }
 
 .nav-center{
@@ -367,3 +369,84 @@ footer{
     border: 1px solid black;
 }
 /*---- WELCOME-MAIN-CONTAINER-END ---- */
+
+/*---- PYTANIA-MAIN-CONTAINER ---- */
+.pytania-main-container{
+    background-color: white;
+}
+
+.pytania-bar{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    background-color: var(--color2);
+    color: var(--color5);
+}
+.pytania-select-category{}
+
+.pytania-legend{
+    display: flex;
+    gap: 24px;
+}
+
+.pytania-legend-item{
+    display: flex;
+    gap: 8px;
+}
+
+.pytania-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+}
+
+.category-item{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    background-color: var(--color5);
+    border-radius: 8px;
+}
+
+.pytanie-collection{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 8px;
+}
+
+.category-pytanie-item{
+    
+}
+
+.pytanie-tresc-wrapper{
+    display: flex;
+}
+
+.pytania-legend-item-i-sz{
+    color: var(--color9);
+}
+.pytania-legend-item-i-sz:hover{
+    color: var(--color10);
+    cursor: pointer;
+    transform: scale(0.95);
+    transition: all 0.30s ease;
+}
+
+.pytania-legend-item-i-k{
+    color: var(--color9);
+}
+
+.pytania-legend-item-i-b{
+    color: var(--error);
+}
+
+.odpowiedz-dluga{
+    margin: 8px;
+    padding: 8px;
+    background-color: var(--color4);
+    border-radius: 4px;
+}
