@@ -12,7 +12,44 @@ class PytaniaController extends Controller
         $kategorie = Kategorie::all();
         $pytania = Pytania::all();
 
-        return view('show-pytania',['kategorie'=>$kategorie, 'pytania'=>$pytania]);
+        $odp_brak = 0;
+        $odp_k = 0;
+        $odp_k_b = 0;
+        $odp_roz = 0;
+        $odp_roz_b = 0;
+        $odp_brak = 0;
+        $pytania_ilosc = $pytania->count();
+        foreach($pytania as $pytanie){
+            if($pytanie->odp_rozbudowana != null){
+                $odp_roz++;
+            }
+            else{
+                $odp_roz_b++;
+            }
+
+            if($pytanie->odp_krotka != null){
+                $odp_k++;
+            }
+            else{
+                $odp_k_b++;
+            }
+
+            if($pytanie->odp_krotka == null && $pytanie->odp_rozbudowana == null){
+                $odp_brak++;
+            }
+
+
+        }
+        return view('show-pytania',[
+            'kategorie'=>$kategorie, 
+            'pytania'=>$pytania,
+            'odp_roz' => $odp_roz,
+            'odp_roz_b' => $odp_roz_b,
+            'odp_k' => $odp_k,
+            'odp_k_b' => $odp_k_b,
+            'odp_brak' => $odp_brak,
+            'pytania_ilosc' => $pytania_ilosc,
+            ]);
     }
 
     public function index_edit($id){

@@ -9,24 +9,25 @@
     @vite(['resources/css/app.css', 
     'resources/js/app.js',
     'resources/css/global.css',
-    'resources/css/fontello.css'])
+    'resources/css/fontello.css'
+/*     'node_modules/tinymce/skins/content/default/content.css' */])
 </head>
 <body>
     <div class="main-container">
         <div class="empty"></div>
         <header class="nav">
-            <a href="#" class="nav-left">
+            <a href="{{ url('/') }}" class="nav-left">
                 <h5><i class=" icon-laptop nav-ico"></i></h5>
                 <h5 class="nav-left-text">Exam App</h5>
             </a>
             <div class="nav-center">
-                <a href="#">Pytania (nauka)</a>
-                <a href="#">Losowanie (egzamin)</a>
+                <a href="{{route('pytania')}}"  class="nav-link">Lista pytań</a>
+                <a href="#"  class="nav-link">Symulacja egzaminu</a>
             </div>
             <div class="nav-right">
                 -
                 @auth
-                <a href="{{route('logout')}}"><button class="button-dark button-logout">Wyloguj</button></a>
+                <a href="{{route('logout')}}"><button class="button-dark button-logout red ">Wyloguj</button></a>
                 @endauth
             </div>
         </header>
@@ -34,4 +35,6 @@
         @yield('content')
         <footer>footer</footer>
     </div>
+
+    <script src="js/main.js"></script>
 </body>

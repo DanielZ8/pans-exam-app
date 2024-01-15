@@ -6,44 +6,65 @@
         <div class="pytania-select-category">
             <label for="category">Wybierz kategorię</label>
             <select name="category" id="category">
-                <option value="Wszystko">Wszystko</option>
+                <option value="all">Wszystko</option>
                 @foreach ($kategorie as $kategoria)
                     <option value="{{$kategoria->nazwa}}">{{$kategoria->nazwa}}</option>
                 @endforeach
             </select>
         </div>
         <div class="pytania-legend">
-            <div class="pytania-legend-item"><i class="icon-stickies pytania-legend-item-i-sz "></i><p>Odpowiedź szczegółowa</p></div>
+            <div class="pytania-legend-item"><i class="icon-stickies-fill pytania-legend-item-i-sz "></i><p>Odpowiedź rozbudowana</p></div>
             <div class="pytania-legend-item"><i class="icon-sticky pytania-legend-item-i-k"></i><p>Odpowiedź krótka</p></div>
-            <div class="pytania-legend-item"><i class="icon-x-lg pytania-legend-item-i-b"></i><p>Brak odpowiedzi</p></div>
-            
-            
+            <div class="pytania-legend-item"><i class="icon-stickies-fill pytania-legend-item-i-sz error-font "></i><p>Brak odp. rozbudowanej</p></div>
+            <div class="pytania-legend-item"><i class="icon-sticky pytania-legend-item-i-k error-font"></i><p>Brak odp. krótkiej</p></div>
+            <div class="pytania-legend-item"><i class="icon-x-lg pytania-legend-item-i-b"></i><p>Brak dwóch odpowiedzi</p></div>
         </div>   
+        <div class="stats">
+            <p>Stan:</p>
+            <div class="licznik-item"><i class="icon-stickies-fill pytania-legend-item-i-sz"></i><p>{{$odp_roz}}/{{$pytania_ilosc}}</p></div>
+            <div class="licznik-item"><i class="icon-sticky pytania-legend-item-i-k"></i><p>{{$odp_k}}/{{$pytania_ilosc}}</p></div>
+            <div class="licznik-item"><i class="icon-stickies-fill pytania-legend-item-i-sz error-font"></i><p>{{$odp_roz_b}}/{{$pytania_ilosc}}</p></div>
+            <div class="licznik-item"><i class="icon-sticky pytania-legend-item-i-k error-font"></i><p>{{$odp_k_b}}/{{$pytania_ilosc}}</p></div>
+                <div class="licznik-item"><i class="icon-x-lg pytania-legend-item-i-b"></i><p>{{$odp_brak}}/{{$pytania_ilosc}}</p></div>
+        </div>
     </div>
     <div class="pytania-wrapper">
         @foreach ($kategorie as $kategoria)
             <div class="category-item" id="{{ $kategoria->lp }}">
-                <div class="category-item-h-wrapper">
-                    <h1>{{$kategoria->nazwa}}</h1>
+                <div class="category-item-h-wrapper" onclick="show_cat('{{ $kategoria->id }}')">
+                    <h1 class="h5">{{ $kategoria->lp }}.  {{$kategoria->nazwa}}</h1><i class="icon-chevron-down icon-category {{'ic'.$kategoria->id }}"></i>
                 </div>
-                <div class="pytanie-collection" id="{{ $kategoria->lp }}">
+                <div class="pytanie-collection {{'c'.$kategoria->id }}" id="{{ $kategoria->lp }}">
                     @foreach($pytania as $pytanie)
                         @if($pytanie->kategorie_id == $kategoria->id)
-                            <div class="category-pytanie-item">
+                            <div class="category-pytanie-item @if($pytanie->odp_krotka ==null && $pytanie->odp_rozbudowana ==null) bg-red @endif">
                                 <div class="pytanie-tresc-wrapper">
-                                    <p class="pytanie-tresc">{{ $pytanie->numer_pytania}}. {{ $pytanie->pytanie_tresc}}</p>
-                                    <i class="icon-stickies pytania-legend-item-i-sz"></i>
-                                    <i class="icon-sticky pytania-legend-item-i-k"></i>
+                                    <h6 class="h6 pytanie-tresc">{{ $pytanie->numer_pytania}}. {{ $pytanie->pytanie_tresc}}</h6>
+                                    <span class="item-i-mg-left"></span>
+                                    @if($pytanie->odp_rozbudowana !=null)
+                                        <i class="icon-stickies-fill pytania-legend-item-i-sz pytania-hover" onclick="show('{{'d'.$pytanie->id}}')"></i>
+                                    @endif
+
+                                    @if($pytanie->odp_krotka !=null)
+                                        <i class="icon-sticky pytania-legend-item-i-k pytania-hover" onclick="show('{{'k'.$pytanie->id}}')"></i>
+                                    @endif
+
+                                   @if($pytanie->odp_krotka ==null && $pytanie->odp_rozbudowana ==null)
+                                        <i class="icon-x-lg pytania-legend-item-i-b"></i>
+                                    @endif
+
                                     @auth
-                                        <a href="{{route('pytanie-edit', $pytanie->id)}}"><i class="icon-pen"></i></a>
+                                        <a href="{{route('pytanie-edit', $pytanie->id)}}"><i class="icon-pen-fill pen-color"></i></a>
                                     @endauth
                                 </div>
-                                <div class="odpowiedz-dluga">
+                                <div class="odpowiedz-dluga {{'d'.$pytanie->id}}">
+                                    <h5 class="h6">Odpowiedź rozbudowana</h5> <br>
                                     @if( $pytanie->odp_rozbudowana !=null)
                                     {!! $pytanie->odp_rozbudowana !!}
                                     @endif
                                 </div>
-                                <div class="odpowiedz krotka">
+                                <div class="odpowiedz-krotka {{'k'.$pytanie->id}}">
+                                    <h5 class="h6">Odpowiedź krótka</h5> <br>
                                     @if( $pytanie->odp_krotka !=null)
                                     {!! $pytanie->odp_krotka !!}
                                     @endif
