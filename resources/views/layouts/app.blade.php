@@ -33,7 +33,9 @@
         </header>
         <!-- CONTENT -->
         @yield('content')
-        <footer>footer</footer>
+        <footer>
+            <p style="font-weight: 200;">© Daniel Ziółkowski</p>
+        </footer>
     </div>
 
     <script src="js/main.js"></script>

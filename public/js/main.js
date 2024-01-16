@@ -1,3 +1,6 @@
+var category_select = document.getElementById('category');
+var category_item = document.querySelectorAll('.category-item');
+
 function show(id){
     console.log(id);
 
@@ -17,4 +20,25 @@ function show_cat(id){
     icon_cat.classList.toggle("icon-chevron-double-right"); */
     icon_cat.classList.toggle("icon-category-active");
     odp.classList.toggle("show_flex");
+}
+
+category_select.addEventListener('change', function() {
+  // Pobierz wybraną wartość
+  var wybranaOpcja = category_select.value;
+  var iloscOpcji = category_select.length-1;
+  displayCategory(wybranaOpcja, iloscOpcji);
+});
+
+function displayCategory(wybranaOpcja, iloscOpcji){
+  if(wybranaOpcja == 'all'){
+    for(let i=0; i<iloscOpcji; i++){
+      category_item[i].style.display = "flex";
+    }
+  }
+  else{
+    for(let i=0; i<iloscOpcji; i++){
+      category_item[i].style.display = "none";
+    }
+    category_item[wybranaOpcja-1].style.display = "flex";
+  }
 }

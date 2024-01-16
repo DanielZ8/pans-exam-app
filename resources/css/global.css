@@ -274,12 +274,11 @@ button{
 .nav-left:hover > h5 > .nav-ico{
     color: var(--color9) !important;
     transform: scale(0.98);
-    transition: all .3s ease-in;
 }
 .nav-left:hover > .nav-left-text{
     color: var(--color9);
     transform: scale(0.98);
-    transition: all .3s ease-in;
+    
 }
 
 .nav-left-img
@@ -291,12 +290,15 @@ button{
 
 .nav-ico{
     color: var(--font-bright);
-    font-size: 18px;
+    font-size: 20px;
+    transition: all .4s ease-in;
 }
 
 .nav-left-text {
     color: var(--font-bright);
     font-size: var(--nav-header);
+    font-weight: 200;
+    transition: all .3s ease-in;
 }
 
 .nav-center{
@@ -313,6 +315,7 @@ button{
     align-self: center;
     color: var(--font-bright);
     font-size: var(--p-m);
+    font-weight: 400;
 }
 
 .nav-link:hover{
@@ -353,11 +356,11 @@ button{
 footer{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-content: center;
     align-items: center;
-    background: var(--color1);
-    color: var(--grey10);
+    background: var(--color6);
+    color: var(--font-bright);
     text-align: center;
     width: 100%;
     height: fit-content;
@@ -368,37 +371,115 @@ footer{
 
 /*---- WELCOME-MAIN-CONTAINER ---- */
 .welcome-main-container{
-    height: calc(100vh - 64px);
+    height: calc(100vh - 128px);
 }
 .welcome-header-container{
-
-    height: 40%;
-    background-color: rgba(0, 0, 0, 0.1);
-    margin: 8px;
-    border: 1px solid rgba(19, 196, 240, 0.1);
-    border-radius: 4px;
-}
-.welcome-select-wrapper{
-    display: flex;
-    width: 100%;
-    height: 50%;
-   /*  background-color: white; */
-}
-.welcome-select{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.welcome-hero-h{
+    color: var(--font-bright);
+    font-weight: 100;
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    background-color: rgba(5, 25, 35, 0.94);;
+}
+
+.welcome-hero-img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%; 
+    filter: blur(1px);
+}
+
+.welcome-hero-filter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    position: absolute;   
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all 0.5s ease-in-out;
+}
+.welcome-select-wrapper{
+    display: flex;
+   /*  gap: 32px; */
+    width: 100%;
+    /* padding: 32px; */
+    height: 50%;
+}
+
+.welcome-select{
+   /*  display: flex;
+    align-items: center;
+    justify-content: center; */
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.1);
-    margin: 8px;
-    border: 1px solid rgba(19, 196, 240, 0.15);
-    border-radius: 4px;
+   /*  margin: 8px; */
+    /* border: 1px solid rgba(6, 50, 61, 0.15); */
+    /* border-radius: 8px; */
+    transition: all 0.5s ease-in-out;
 }
 
-.welcome-down-bar{
-    height: 32px;
+.welcome-select-h{
+    color: var(--white);
+    transition: all 0.9s ease-in-out;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-weight: 400;
+    background-color: rgba(5, 25, 35, 0.94);;
 }
+.welcome-select:hover{
+    transform: scale(0.99);
+}
+
+.welcome-select:hover > .welcome-select-filter{
+    background-color: rgba(0, 0, 0, 0.65);
+}
+.welcome-select:hover > .welcome-select-filter > .welcome-select-h{
+    color: var(--color10);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.welcome-select-img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;  
+  /*   background-repeat: no-repeat;
+    background-size: cover; */
+    filter: blur(0.5px);
+    /* border-radius: 4px; */
+}
+
+.welcome-select-filter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    position: absolute;   
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+   /*  border-radius: 4px; */
+    transition: all 0.5s ease-in-out;
+   
+}
+
+/* .welcome-down-bar{
+    height: 32px;
+} */
 /*---- WELCOME-MAIN-CONTAINER-END ---- */
 
 /*---- PYTANIA-MAIN-CONTAINER ---- */
@@ -414,11 +495,15 @@ footer{
     background-color: var(--color1);
     color: var(--font-bright);
 }
-.pytania-select-category{}
+.pytania-select-category{
+    font-weight: 300;
+}
 
 .pytania-legend{
     display: flex;
     gap: 24px;
+    font-weight: 300;
+    font-size: var(--p-m);
 }
 
 .pytania-legend-item{
@@ -428,6 +513,8 @@ footer{
 .stats{
     display: flex;
     gap: 24px;
+    font-weight: 300;
+    font-size: var(--p-s);
 }
 
 .licznik-item{
@@ -456,6 +543,10 @@ footer{
     align-items: center;
     width: fit-content;
     transition: all .5s ease-in-out;
+}
+
+.category-item-h{
+    font-weight: 700;
 }
 
 .category-item-h-wrapper:hover{
@@ -492,7 +583,7 @@ footer{
 }
 
 .category-pytanie-item{
-   padding: 8px;
+   padding: 16px;
    border-radius: 4px;
 }
 

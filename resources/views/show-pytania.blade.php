@@ -8,7 +8,7 @@
             <select name="category" id="category">
                 <option value="all">Wszystko</option>
                 @foreach ($kategorie as $kategoria)
-                    <option value="{{$kategoria->nazwa}}">{{$kategoria->nazwa}}</option>
+                    <option value="{{$kategoria->id}}">{{$kategoria->nazwa}}</option>
                 @endforeach
             </select>
         </div>
@@ -32,7 +32,7 @@
         @foreach ($kategorie as $kategoria)
             <div class="category-item" id="{{ $kategoria->lp }}">
                 <div class="category-item-h-wrapper" onclick="show_cat('{{ $kategoria->id }}')">
-                    <h1 class="h5">{{ $kategoria->lp }}.  {{$kategoria->nazwa}}</h1><i class="icon-chevron-down icon-category {{'ic'.$kategoria->id }}"></i>
+                    <h1 class="h5 category-item-h">{{ $kategoria->lp }}.  {{$kategoria->nazwa}}</h1><i class="icon-chevron-down icon-category {{'ic'.$kategoria->id }}"></i>
                 </div>
                 <div class="pytanie-collection {{'c'.$kategoria->id }}" id="{{ $kategoria->lp }}">
                     @foreach($pytania as $pytanie)
