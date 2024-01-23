@@ -9,13 +9,13 @@
         </div>
     </div>
     <div class="welcome-select-wrapper">
-        <a class="welcome-select w-option-left" href="#">
+        <a class="welcome-select w-option-left" href="{{route('pytania')}}">
             <img class= "welcome-select-img" src="{{asset('img/pytania.jpg')}}" alt="">
             <div class="welcome-select-filter">
                 <h3 class="h2 welcome-select-h">Lista pytań</h3>
             </div>
         </a>
-        <a class="welcome-select w-option-right" href="#">
+        <a class="welcome-select w-option-right" href="{{route('egzamin-test')}}">
             <img class= "welcome-select-img" src="{{asset('img/egzamin.jpg')}}" alt="">
             <div class="welcome-select-filter">
                 <h3 class="h2 welcome-select-h">Symulacja egzaminu</h3>

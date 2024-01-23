@@ -18,11 +18,11 @@
         <header class="nav">
             <a href="{{ url('/') }}" class="nav-left">
                 <h5><i class=" icon-laptop nav-ico"></i></h5>
-                <h5 class="nav-left-text">Exam App</h5>
+                <h5 class="nav-left-text">APP - Egzamin 2024</h5>
             </a>
             <div class="nav-center">
                 <a href="{{route('pytania')}}"  class="nav-link">Lista pytań</a>
-                <a href="#"  class="nav-link">Symulacja egzaminu</a>
+                <a href="{{route('egzamin-test')}}"  class="nav-link">Egzamin testowy</a>
             </div>
             <div class="nav-right">
                 -
@@ -38,5 +38,5 @@
         </footer>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="@stack('js_main')"></script>
 </body>

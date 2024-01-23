@@ -27,9 +27,19 @@ Route::post('/admin', [LoginController::class, 'login']);
 
 
 
+
+
+Route::get('/egzamin-symulacja', [PytaniaController::class, 'egzamin_index']) -> name('egzamin-test');
+
+Route::get('/api/egzamin-losowanie', [PytaniaController::class, 'random_index']);
+
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/pytanie-edit/{id}', [PytaniaController::class, 'index_edit']) -> name('pytanie-edit');
     Route::post('/pytanie-edit/{id}', [PytaniaController::class, 'update']) -> name('pytanie-update');
+
+    Route::get('/haslo', [LoginController::class, 'change_pswd_index']) -> name('admin-password');
+    Route::post('/haslo-change', [LoginController::class, 'change_pswd']) -> name('admin-password-change');
 
     Route::get('/logout', [LogoutController::class, 'logout']) -> name('logout');
 });

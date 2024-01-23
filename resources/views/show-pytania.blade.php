@@ -5,7 +5,7 @@
     <div class="pytania-bar">
         <div class="pytania-select-category">
             <label for="category">Wybierz kategorię</label>
-            <select name="category" id="category">
+            <select name="category" id="category" class="input-select">
                 <option value="all">Wszystko</option>
                 @foreach ($kategorie as $kategoria)
                     <option value="{{$kategoria->id}}">{{$kategoria->nazwa}}</option>
@@ -39,7 +39,12 @@
                         @if($pytanie->kategorie_id == $kategoria->id)
                             <div class="category-pytanie-item @if($pytanie->odp_krotka ==null && $pytanie->odp_rozbudowana ==null) bg-red @endif">
                                 <div class="pytanie-tresc-wrapper">
-                                    <h6 class="h6 pytanie-tresc">{{ $pytanie->numer_pytania}}. {{ $pytanie->pytanie_tresc}}</h6>
+                                    @if (Str::startsWith($pytanie->pytanie_tresc, '<h6>'))
+                                    <h6 class="h5 pytanie-tresc">{{ $pytanie->numer_pytania }}. {!! str_replace(['<h6>', '</h6>'], ['', ''], $pytanie->pytanie_tresc) !!}</h6>
+                                    @else
+                                    <h6 class="h5 pytanie-tresc">{{ $pytanie->numer_pytania }}. {{ $pytanie->pytanie_tresc}}</h6>
+                                    @endif
+
                                     <span class="item-i-mg-left"></span>
                                     @if($pytanie->odp_rozbudowana !=null)
                                         <i class="icon-stickies-fill pytania-legend-item-i-sz pytania-hover" onclick="show('{{'d'.$pytanie->id}}')"></i>
@@ -58,13 +63,13 @@
                                     @endauth
                                 </div>
                                 <div class="odpowiedz-dluga {{'d'.$pytanie->id}}">
-                                    <h5 class="h6">Odpowiedź rozbudowana</h5> <br>
+                                    <h6 class="h5 odp-d-h">Odpowiedź rozbudowana</h6> <br>
                                     @if( $pytanie->odp_rozbudowana !=null)
                                     {!! $pytanie->odp_rozbudowana !!}
                                     @endif
                                 </div>
                                 <div class="odpowiedz-krotka {{'k'.$pytanie->id}}">
-                                    <h5 class="h6">Odpowiedź krótka</h5> <br>
+                                    <h6 class="h5 odp-k-h">Odpowiedź krótka</h6> <br>
                                     @if( $pytanie->odp_krotka !=null)
                                     {!! $pytanie->odp_krotka !!}
                                     @endif
@@ -76,6 +81,8 @@
             </div>
         @endforeach
     </div>
-    
+    @push('js_main')
+        {{asset('js/main.js')}}
+    @endpush
 </div>
 @endsection
