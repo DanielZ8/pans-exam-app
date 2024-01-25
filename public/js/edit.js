@@ -12,7 +12,7 @@ var pytanie_odp_k_hide =  document.querySelector('.pytanie-odp-k-hide');
 var pytanie_odp_d_hide =  document.querySelector('.pytanie-odp-d-hide');
 
 for (var i = 0; i < elements_h6.length; i++) {
-  elements_h6[i].classList.add('h4', 'pytanie-tresc');
+  elements_h6[i].classList.add('h5', 'pytanie-tresc');
   var additionalText = document.createTextNode( "{{ $pytanie->numer_pytania}}");
 }
 

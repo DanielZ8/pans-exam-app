@@ -8,9 +8,9 @@
     <div class="pytania-wrapper">
         <div class="pytanie-edit-wrapper-h">
             @if (Str::startsWith($pytanie->pytanie_tresc, '<h6>'))
-                <h6 class="h4">{{ $pytanie->numer_pytania }}.&nbsp;</h6>{!! $pytanie->pytanie_tresc !!}
+                <h6 class="h5">{{ $pytanie->numer_pytania }}.&nbsp;</h6>{!! $pytanie->pytanie_tresc !!}
             @else
-                <h6 class="h4 pytanie-tresc">{{ $pytanie->numer_pytania }}. {{ $pytanie->pytanie_tresc}}</h6>
+                <h6 class="h5 pytanie-tresc">{{ $pytanie->numer_pytania }}. {{ $pytanie->pytanie_tresc}}</h6>
             @endif<i class="pytanie-edit-pen icon-pen-fill pen-color"></i>
         </div>
         <form class="pytania-form" action="{{ route('pytanie-edit', $pytanie->id)}}" method="post" >

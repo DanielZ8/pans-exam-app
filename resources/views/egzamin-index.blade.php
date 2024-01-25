@@ -13,9 +13,9 @@
                     <h6 class="h6">{{$pytanie->kategorie->nazwa}} ({{$pytanie->typ_pytania}})</h6>
                     <div class="pytanie-tresc-wrapper">
                         @if (Str::startsWith($pytanie->pytanie_tresc, '<h6>'))
-                        <h6 class="h5  pytanie-tresc">{{ $pytanie->numer_pytania }}. {!! str_replace(['<h6>', '</h6>'], ['', ''], $pytanie->pytanie_tresc) !!}</h6>
+                        <h6 class="h6  pytanie-tresc">{{ $pytanie->numer_pytania }}. {!! str_replace(['<h6>', '</h6>'], ['', ''], $pytanie->pytanie_tresc) !!}</h6>
                         @else
-                        <h6 class="h5 pytanie-tresc">{{ $pytanie->numer_pytania }}. {{ $pytanie->pytanie_tresc}}</h6>
+                        <h6 class="h6 pytanie-tresc">{{ $pytanie->numer_pytania }}. {{ $pytanie->pytanie_tresc}}</h6>
                         @endif
 
                         <span class="item-i-mg-left"></span>
@@ -36,13 +36,13 @@
                         @endauth
                     </div>
                     <div class="odpowiedz-dluga {{'d'.$pytanie->id}}">
-                        <h6 class="h5 odp-d-h">Odpowiedź rozbudowana</h6> <br>
+                        <h6 class="h6 odp-d-h">Odpowiedź rozbudowana</h6> <br>
                         @if( $pytanie->odp_rozbudowana !=null)
                         {!! $pytanie->odp_rozbudowana !!}
                         @endif
                     </div>
                     <div class="odpowiedz-krotka {{'k'.$pytanie->id}}">
-                        <h6 class="h5 odp-k-h">Odpowiedź krótka</h6> <br>
+                        <h6 class="h6 odp-k-h">Odpowiedź krótka</h6> <br>
                         @if( $pytanie->odp_krotka !=null)
                         {!! $pytanie->odp_krotka !!}
                         @endif
