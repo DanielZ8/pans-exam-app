@@ -3,9 +3,9 @@ var category_item = document.querySelectorAll('.category-item');
 var elements_h6 = document.getElementsByTagName('h6');
 var pytanie_edit_pen = document.querySelector('.pytanie-edit-pen');
 
-/* for (var i = 0; i < elements_h6.length; i++) {
+ for (var i = 0; i < elements_h6.length; i++) {
   elements_h6[i].classList.add('h6', 'pytanie-tresc');
-} */
+} 
 
 function show(id){
     console.log(id);

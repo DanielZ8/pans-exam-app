@@ -18,7 +18,7 @@
         <a class="welcome-select w-option-right" href="{{route('egzamin-test')}}">
             <img class= "welcome-select-img" src="{{asset('img/egzamin.jpg')}}" alt="">
             <div class="welcome-select-filter">
-                <h3 class="h3 welcome-select-h">Symulacja egzaminu</h3>
+                <h3 class="h3 welcome-select-h">Egzamin testowy</h3>
             </div>
         </a>
     </div>

@@ -61,6 +61,19 @@ class PytaniaController extends Controller
     public function update(Request $request){
         $pytanie = Pytania::find($request->pytanie_id);
 
+        if($request->pytanie_krotka_del == 1){
+            $pytanie->odp_krotka  = null;
+            $pytanie->update();
+
+        return redirect(route('pytanie-edit', $pytanie->id));
+        }
+        if($request->pytanie_roz_del == 1){
+            $pytanie->odp_rozbudowana = null;
+            $pytanie->update();
+
+        return redirect(route('pytanie-edit', $pytanie->id));
+        }
+
         if($request->pytanie_tresc != null){
             $pytanie->pytanie_tresc = $request->pytanie_tresc;
         }
@@ -115,6 +128,26 @@ class PytaniaController extends Controller
                 $pytania[] = $pytanie;
             }
         }
+
+        $unikalneKategorie = Pytania::where('typ_pytania', 'praktyczne')->inRandomOrder()->distinct('kategorie_id')->limit(2)->pluck('kategorie_id')->toArray();
+
+        $losowePytania = collect();
+        
+        foreach ($unikalneKategorie as $kategoriaId) {
+            $losowePytanie = Pytania::where('typ_pytania', 'praktyczne')
+                ->where('kategorie_id', $kategoriaId)
+                ->inRandomOrder()
+                ->first();
+        
+            if ($losowePytanie) {
+                $losowePytania->push($losowePytanie);
+            }
+        }
+
+        foreach($losowePytania as $pytanie){
+            $pytania[] = $pytanie;
+        }
+
         return view('egzamin-index', ['pytania'=>$pytania]);
     }
 }

@@ -512,7 +512,10 @@ footer{
 }
 
 ul{
-    margin-left: 24px;
+    margin-left: 32px;
+}
+ol{
+    margin-left: 32px;
 }
 
 /* .welcome-down-bar{
@@ -697,7 +700,7 @@ ul{
 }
 
 .item-i-mg-left{
-    margin-left: 4px;
+    margin-left: 8px;
 }
 
 .odpowiedz-krotka,
@@ -709,6 +712,12 @@ ul{
     border-radius: 4px;
     font-size: var(--p-m);
 }
+
+.odpowiedz-krotka * img,
+.odpowiedz-dluga * img{
+border-radius: 8px;
+}
+
 
 .show{
     display: block;
@@ -742,8 +751,114 @@ ul{
     padding: 24px;
     border-radius: 8px;
 }
+.pytanie_img{
+    max-width: 100%;
+    /* margin-right: 25%;
+    margin-left: 25%; */
+    height: auto;
+    object-fit: contain;
+
+}
+
+/* .p64{
+    width: 21%!important;
+    min-width: 250px !important;
+    height: auto !important;
+}
+.p69{
+    width: 50%;
+
+    height: auto;
+}
+
+.p75{
+    width: 50%;
+} */
+
 .pytanie-edit-pen{
     font-size: var(--h5);
+}
+
+.edit-settings-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+.pytanie-delete-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pytanie-delete-wrapper-roz{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+}
+.pytanie-delete-wrapper-krotka{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pytanie-delete-options{
+    margin-left: 8px;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.trash-color{
+    color: var(--error);
+}
+.trash-color:hover{
+    cursor: pointer;
+    transform: scale(0.95);
+    transition: all 0.30s ease;
+}
+
+.delete-krotka-opt{
+    display: none;
+}
+/* .delete-roz-trash{
+    display: none;
+} */
+
+.delete-roz-opt{
+    display: none;
+}
+
+.show-flex{
+    display: flex !important;
+}
+
+.show-block{
+    display: block;
+}
+.btn-delete-accept{
+    background-color: var(--error);
+    padding: 6px 16px;
+    border-radius: 8px;
+    color: var(--font-bright);
+    transition: all 0.5s ease-in;
+    font-size: var(--p-xxs);
+}
+.btn-delete-deny{
+    background-color: var(--error);
+    padding: 6px 16px;
+    border-radius: 8px;
+    color: var(--font-bright);
+    transition: all 0.3s ease-in;
+    font-size: var(--p-xxxs);
+}
+
+
+.btn-delete-deny:hover,
+.btn-delete-accept:hover{
+    transform: scale(0.95);
+    cursor: pointer;
 }
 
 .pytanie-tresc-hide{
@@ -923,6 +1038,8 @@ ul{
     .welcome-hero-h{
         font-size: var(--h2);
     }
+
+    
 }
 
 @media (max-width: 1050px){
@@ -987,6 +1104,11 @@ ul{
         font-size: var(--p-xxs);
     }
 
+    .odpowiedz-krotka * img,
+    .odpowiedz-dluga * img{
+    max-width: 100%;
+    height: auto;
+}
     
 }
 
@@ -994,4 +1116,9 @@ ul{
     .admin-login-box{
         min-width: 310px;
     }
+    /* .odpowiedz-krotka * img,
+    .odpowiedz-dluga * img{
+    width: 100%;
+    height: auto;
+    } */
 }

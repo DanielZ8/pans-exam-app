@@ -10,10 +10,10 @@
         <div class="pytania-wrapper">
             @foreach($pytania as $pytanie)
                 <div class="category-pytanie-item @if($pytanie->odp_krotka ==null && $pytanie->odp_rozbudowana ==null) bg-red @endif">
-                    <h6 class="h6">{{$pytanie->kategorie->nazwa}} ({{$pytanie->typ_pytania}})</h6>
+                    <h6 class="h6">{{$pytanie->kategorie->nazwa}} <span style="font-weight: 600">({{$pytanie->typ_pytania}})</span></h6>
                     <div class="pytanie-tresc-wrapper">
-                        @if (Str::startsWith($pytanie->pytanie_tresc, '<h6>'))
-                        <h6 class="h6  pytanie-tresc">{{ $pytanie->numer_pytania }}. {!! str_replace(['<h6>', '</h6>'], ['', ''], $pytanie->pytanie_tresc) !!}</h6>
+                        @if (Str::startsWith($pytanie->pytanie_tresc, '<h6'))
+                            <h6 class="h6 pytanie-tresc">{{ $pytanie->numer_pytania }}.&nbsp;</h6>{!! $pytanie->pytanie_tresc !!}
                         @else
                         <h6 class="h6 pytanie-tresc">{{ $pytanie->numer_pytania }}. {{ $pytanie->pytanie_tresc}}</h6>
                         @endif
@@ -35,6 +35,9 @@
                             <a href="{{route('pytanie-edit', $pytanie->id)}}"><i class="icon-pen-fill pen-color"></i></a>
                         @endauth
                     </div>
+                    @if($pytanie->zdj_pytanie != null)
+                        <div><img class="pytanie_img" src="{{asset($pytanie->zdj_pytanie)}}" alt=""></div>
+                    @endif
                     <div class="odpowiedz-dluga {{'d'.$pytanie->id}}">
                         <h6 class="h6 odp-d-h">Odpowiedź rozbudowana</h6> <br>
                         @if( $pytanie->odp_rozbudowana !=null)
