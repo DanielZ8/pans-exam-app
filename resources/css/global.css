@@ -711,6 +711,9 @@ ol{
     background-color: var(--white);
     border-radius: 4px;
     font-size: var(--p-m);
+    line-height: 1.6;
+    text-align: justify;
+    font-weight: 500;
 }
 
 .odpowiedz-krotka * img,
